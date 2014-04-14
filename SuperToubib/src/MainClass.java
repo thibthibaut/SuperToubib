@@ -17,7 +17,6 @@ public class MainClass {
         // TODO code application logic here
         
         System.out.println("Bienvenue sur SUPERTOUBIB!");
-        System.out.println("Coucou !");
         
     }
     
