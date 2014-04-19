@@ -23,6 +23,13 @@ public class MainClass {
         
         try {
             Connexion c = new Connexion("root", "");
+           
+            
+            //Test d'une requete de mise à jour
+            c.executeUpdate("UPDATE malade SET nom='Fallo' WHERE nom='Falla'");
+            
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
