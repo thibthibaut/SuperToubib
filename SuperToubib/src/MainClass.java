@@ -21,14 +21,12 @@ public class MainClass {
      */
     public static void main(String[] args) {
         try {
-            Connexion c = new Connexion("vercueil", "******","vercueil-rw","******");
+            Connexion c = new Connexion("vercueil", "banane");
         } catch (SQLException ex) {
             Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        
         
         
     }
