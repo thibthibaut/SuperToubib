@@ -20,13 +20,16 @@ public class MainClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         try {
-            Connexion c = new Connexion("vercueil", "banane");
+            Connexion c = new Connexion("root", "");
         } catch (SQLException ex) {
             Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         
         
     }

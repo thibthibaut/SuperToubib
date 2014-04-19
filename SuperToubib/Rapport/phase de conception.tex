@@ -1,0 +1,146 @@
+\documentclass[13pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{graphicx}
+
+
+\title{\bsc{Projet JAVA 2014 \\Phase de Conception} \\  \normalsize{Gestion informatique d'un centre hospitalier}}
+\author{Antoine \bsc{Deramoudt} \\ Vincent \bsc{Pasquereau} \\ Kihi \bsc{Tuiho} \\ Thibaut \bsc{Vercueil} }
+\date{12 avril 2014}
+
+\begin{document}
+\maketitle
+\newpage
+\section*{Introduction}
+
+Le but de ce projet est de réaliser une base de données visant à être utilisée dans un milieu hospitalier. Pour ce faire, nous devons utiliser simultanément nos connaissances acquises au début de ce semestre lors du cours sur les bases de données et nos connaissances sur notre cours actuel: le java. Nous exploiterons une base de données déjà crée et stockée sous MySql à travers une application Java codée sous NetBeans proposant une interface graphique agréable et ergonomique pour l'utilisateur.
+Nous avons donc dû passer par une phase de conception afin de vraiment comprendre et anticiper tout les enjeux de ce vaste projet. Pour se faire, nous avons suivi la démarche proposée dans le sujet, à savoir:\\
+1/ Établissement du diagramme de classes. \\
+2/ Répartition des classes dans les différents modules. \\
+3/ Répartition des méthodes dans les différents modules, en précisant les entrées et les sorties. \\
+4/ Schémas de l'interface graphique. \\
+5/ Les algorithmes ou organigrammes des différentes méthodes. \\
+Nous vous présenterons dans cette phase de conception ces différents points, en essayant d'expliquer de la manière la plus claire possible nos choix.
+
+\section{Diagramme de classes}
+
+\begin{figure}[h]
+	\centering
+		\includegraphics[scale=0.80]{Cl1}
+	\label{fig:Cl1}
+\end{figure}
+
+\newpage
+\begin{figure}[t]
+	\centering
+		\includegraphics{Cl2}
+	\label{fig:Cl2}
+\end{figure}
+
+Nous avons décidé d'organiser notre projet en quatre packages: un package Modèle,  un package Vu, un package Contrôleur et un package Connexion, qui a pour but de relier l'application Java à la base de données. Le choix de ces packages s'est fait dans un soucis d'optimisation et d'indépendance des modules afin de pouvoir par la suite se répartir au mieux les tâches. De plus, respecter la notion de programmation orienté objet à été un point central de notre réflexion. En effet, nous avons essayé de penser les classes de la manière la plus logique possible afin qu'elles représentent au mieux les différents objets que nous manipulons.
+
+\section{Répartitions des classes dans les différents modules}
+
+\subsection*{Dans le module Modèle :}
+Chambre
+
+Patient
+
+Docteur
+
+Infirmier
+
+Soigne
+
+Service
+
+Hospitalisation
+
+Personne (abstract)
+
+Employé (abstract)
+
+\subsection*{Dans le module Recherche :}
+Recherche (interface)
+
+\subsection*{Dans le module Mise à jour :}
+MiseAJour (interface)
+
+\subsection*{Dans le module Génération et historisation des activités}
+HistoriqueHospitalistaion
+
+HistoriquePatient
+
+HistoriqueSoin
+
+\subsection*{Dans le module Connexion}
+Le module connexion est fourni par l'énoncé
+
+\section{Répartition des méthodes dans les différents modules}
+
+\subsection*{Dans le module Recherche :}
+\emph{Les entrées sorties vont dépendre de l'objet qui implémente l'interface. Les méthodes ci-dessous seront polymorphes et définies pour chaque objet du modèle.}\\
+Rechercher un patient (entrée$\rightarrow$champ de recherche/ Sortie$\rightarrow$Liste d'Array d'infos)\\
+Rechercher un docteur(entrée$\rightarrow$champ de recherche/ Sortie$\rightarrow$Liste d'Array d'infos)\\
+Rechercher un(e) infirmier(ère) (entrée$\rightarrow$champ de recherche/ Sortie$\rightarrow$Liste d'Array d'infos)\\
+Rechercher un hospitalisation (entrée$\rightarrow$champ de recherche/ Sortie$\rightarrow$Liste d'Array d'infos)\\
+Recherche de lit par service (entrée$\rightarrow$nom du service, Sortie$\rightarrow$Numéro du lit disponible ou une exception levée si pas de lits disponibles.)\\
+
+\subsection*{Dans le module Mise à jour}
+\emph{Les entrées sorties vont dépendre de l'objet qui implémente l'interface. Les méthodes ci-dessous seront polymorphes et définies pour chaque objet du modèle.}\\
+Modifier l'attribut d'une personne(entrée$\rightarrow$L'attribut(nom,prénom,adresse...) , pas de sortie)\\
+Modifier l'attribut d'un patient (entrée$\rightarrow$L'attribut, pas de sortie)\\
+Modifier l'attribut d'un médecin(entrée$\rightarrow$L'attribut, pas de sortie)\\
+Modifier l'attribut d'un infirmier(entrée$\rightarrow$ L'attribut, pas de sortie)\\
+Modifier le nom d'un service(entrée$\rightarrow$String, pas de sortie)\\
+Modifier le surveillant d'une chambre(entrées$\rightarrow$Chambre et surveillant, pas de sortie)\\
+\subsection*{Dans le module Génération et historisation des activités}
+
+\noindent Ajouter un patient\\
+Supprimer un patient (Le mettre dans l'historique)\\
+Ajouter un médecin\\
+Ajouter un(e) infirmier(ère)\\
+Ajouter une hospitalisation\\
+Supprimer une hospitalisation(archive)\\
+Nouvelles données(champs) dans tables existante\\
+Nouvelles tables : CREATE TABLE, DROP TABLE\\
+
+\subsection*{Dans le module Connexion }
+\noindent Se connecter à la BDD (entrées$\rightarrow$IP, pseudo, mot de passe..., pas de sortie)\\
+Exécuter une requête SQL sur la BDD(entrée$\rightarrow$La requête(String), sortie$\rightarrow$le résultat de la requète)\\
+
+\section{L'interface Graphique}
+Les maquettes ci-dessous représentent l'interface graphique de notre application comme nous l'imaginons. Chaque onglet représente une partie du modèle, et les actions nécessaires sont disponible dans chaque panneau. Ici n'est représenté que la partie \og Patient \fg , mais les autres parties sont tout aussi semblables.
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[scale=0.45]{P1}
+	\label{fig:P1}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[scale=0.45]{P2}
+	\label{fig:P2}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[scale=0.45]{P3}
+	\label{fig:P3}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+		\includegraphics[scale=0.45]{P4}
+	\label{fig:P4}
+\end{figure}
+\end{document}
+
+
