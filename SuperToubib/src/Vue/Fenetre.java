@@ -21,7 +21,7 @@ public class Fenetre extends JFrame {
     this.connexionPanel = new ConnexionPanel();    
     
     this.setTitle("SuperToubib!");
-    this.setSize(600, 600);
+    this.setSize(400, 400);
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
     
