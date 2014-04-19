@@ -1,6 +1,8 @@
 
 import Connexion.*;
+import Vue.Fenetre;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,21 +23,7 @@ public class MainClass {
      */
     public static void main(String[] args) {
         
-        try {
-            Connexion c = new Connexion("root", "");
-           
-            
-            //Test d'une requete de mise à jour
-            c.executeUpdate("UPDATE malade SET nom='Fallo' WHERE nom='Falla'");
-            
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MainClass.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        Fenetre f = new Fenetre();
         
         
         
