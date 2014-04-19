@@ -40,6 +40,9 @@ public class ConnexionPanel extends JPanel {
         
         this.connexion = new JButton("Connexion");
         
+        
+        JLabel img = new JLabel(new ImageIcon("welcome.png")); 
+        img.setBounds(0, 0, 200, 100); 
        
        GridBagLayout layout = new GridBagLayout();
        this.setLayout(layout);
@@ -51,30 +54,38 @@ public class ConnexionPanel extends JPanel {
       
        gc.gridx = 0;
        gc.gridy = 0;
+       gc.gridheight = 1;
+       gc.gridwidth = 2;
+       this.add(img, gc);
+       //-----------------------
+       gc.gridx = 0;
+       gc.gridy = 1;
+       gc.gridheight = 1;
+       gc.gridwidth = 1;
        this.add(ipLabel, gc);
        //-----------------------
        gc.gridx = 1;
-       gc.gridy = 0;
+       gc.gridy = 1;
        this.add(ip, gc);
        //------------------------
        gc.gridx = 0;
-       gc.gridy = 1;
+       gc.gridy = 2;
        this.add(userLabel, gc);
        //-----------------------
        gc.gridx = 1;
-       gc.gridy = 1;
+       gc.gridy = 2;
        this.add(user, gc);
        //-----------------------
        gc.gridx = 0;
-       gc.gridy = 2;
+       gc.gridy = 3;
        this.add(passwordLabel, gc);
        //-----------------------
        gc.gridx = 1;
-       gc.gridy = 2;
+       gc.gridy = 3;
        this.add(password, gc);
        //-----------------------
        gc.gridx = 0;
-       gc.gridy = 3;
+       gc.gridy = 4;
        gc.gridheight = 1;
        gc.gridwidth = 2;
        this.add(connexion, gc);
