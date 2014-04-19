@@ -17,13 +17,13 @@ public class ConnexionPanel extends JPanel {
     
     private JTextField ip;
     private JTextField user;
-    private JTextField password;
-    
-    private JButton connexion;
-    
+    private JPasswordField password;
+   
     private JLabel ipLabel;
     private JLabel userLabel;
     private JLabel passwordLabel;
+    
+    private JButton connexion;
     
     public ConnexionPanel(){
         
@@ -31,12 +31,12 @@ public class ConnexionPanel extends JPanel {
         this.ip.setPreferredSize(new Dimension(150,20));
         this.user = new JTextField("");
         this.user.setPreferredSize(new Dimension(150,20));
-        this.password = new JTextField();
+        this.password = new JPasswordField();
         this.password.setPreferredSize(new Dimension(150,20));
         
-        this.ipLabel = new JLabel("Adresse de la BDD :");
-        this.userLabel = new JLabel("Nom d'utilisateur");
-        this.passwordLabel = new JLabel("Mot de passe");
+        this.ipLabel = new JLabel("Adresse de la BDD : ");
+        this.userLabel = new JLabel("Nom d'utilisateur : ");
+        this.passwordLabel = new JLabel("Mot de passe : ");
         
         this.connexion = new JButton("Connexion");
         
