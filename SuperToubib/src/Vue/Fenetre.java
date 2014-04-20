@@ -14,11 +14,19 @@ import javax.swing.*;
  */
 public class Fenetre extends JFrame {
     
-    JPanel connexionPanel; //Panneau de connexion
+    public JPanel connexionPanel; //Panneau de connexion
+    public JTabbedPane tabset; 
     
+    /**
+     * Constructeur de la fenêtre pricipale
+     */
     public Fenetre(){
        
     this.connexionPanel = new ConnexionPanel();    
+    this.tabset = new JTabbedPane();
+    
+    this.tabset.add("Patient", new PatientOnglet());
+    
     
     this.setTitle("SuperToubib!");
     this.setSize(400, 400);
