@@ -29,7 +29,7 @@ public class Fenetre extends JFrame {
     
     
     this.setTitle("SuperToubib!");
-    this.setSize(400, 400);
+    this.setSize(600, 600);
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
     

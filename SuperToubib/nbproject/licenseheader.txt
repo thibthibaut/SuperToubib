@@ -1,7 +1,0 @@
-<#if licenseFirst??>
-SuperToubib
-</#if>
-SuperToubib est un logiciel réalisé pas 4 étudiants de l'ECE Paris école d'ingénieur et n'est soumi à aucune licience.
-<#if licenseLast??>
-Merci.
-</#if>

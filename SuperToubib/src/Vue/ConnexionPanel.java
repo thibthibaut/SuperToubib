@@ -15,31 +15,32 @@ import javax.swing.*;
  */
 public class ConnexionPanel extends JPanel {
     
-    private JTextField ip;
-    private JTextField user;
+    private TextField ip;
+    private TextField user;
     private JPasswordField password;
     
-    private JLabel ipLabel;
-    private JLabel userLabel;
-    private JLabel passwordLabel;
+    private TextLabel ipLabel;
+    private TextLabel userLabel;
+    private TextLabel passwordLabel;
     
     private JButton connexion;
     
     public ConnexionPanel(){
         
-        this.ip = new JTextField("");
-        this.ip.setPreferredSize(new Dimension(150,20));
-        this.user = new JTextField("");
-        this.user.setPreferredSize(new Dimension(150,20));
-        this.password = new JPasswordField();
-        this.password.setPreferredSize(new Dimension(150,20));
         
-        this.ipLabel = new JLabel("Adresse de la BDD : ");
-        this.userLabel = new JLabel("Nom d'utilisateur : ");
-        this.passwordLabel = new JLabel("Mot de passe : ");
+        this.ip = new TextField("");
+        this.user = new TextField("");
+       
+        this.password = new JPasswordField();
+        this.password.setPreferredSize(new Dimension(200,25));
+        
+        this.ipLabel = new TextLabel("Adresse de la BDD : ");
+        this.userLabel = new TextLabel("Nom d'utilisateur : ");
+        this.passwordLabel = new TextLabel("Mot de passe : ");
         
         this.connexion = new JButton("Connexion");
         
+       
         
         JLabel img = new JLabel(new ImageIcon("welcome.png"));
         img.setBounds(0, 0, 200, 100);
@@ -90,11 +91,7 @@ public class ConnexionPanel extends JPanel {
         gc.gridwidth = 2;
         this.add(connexion, gc);
         
-        
-        
-        
-        
-        
+
         this.setVisible(true);
         
         
