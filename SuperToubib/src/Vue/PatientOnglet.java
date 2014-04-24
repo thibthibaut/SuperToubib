@@ -1,11 +1,7 @@
 
 package Vue;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.Rectangle;
+import java.awt.*;
 import javax.swing.*;
 
 
@@ -17,7 +13,6 @@ import javax.swing.*;
 
 public class PatientOnglet extends JPanel {
     
-    
     private JButton ajoutPatient;
     private JTextField recherche;
     private JComboBox choix;
@@ -27,44 +22,53 @@ public class PatientOnglet extends JPanel {
     private JTable tableau;
     
     public PatientOnglet(){
+    
+        /**
+         * Création des différentrs objets constituant la fenêtre
+         */
         
-        this.ajoutPatient = new JButton("Ajouter un patient");
-        this.ajoutPatient.setPreferredSize(new Dimension(100,30));
+        ajoutPatient = new JButton("Ajouter un patient");
+        ajoutPatient.setPreferredSize(new Dimension(100,30));
         
-        this.recherche = new JTextField("Rechercher un patient");
-        this.recherche.setPreferredSize(new Dimension(200,30));
-       // this.recherche.setBounds(new Rectangle(200,30));
+        recherche = new JTextField("Rechercher un patient");
+        recherche.setPreferredSize(new Dimension(200,30));
+       
+        choix = new JComboBox(this.listechoix);
+        choix.setPreferredSize(new Dimension(100,30));
         
-        this.choix = new JComboBox(this.listechoix);
-        this.choix.setPreferredSize(new Dimension(100,30));
+        rechercheBouton = new JButton("Rechecher");
+        rechercheBouton.setPreferredSize(new Dimension(100,30));
         
-        this.rechercheBouton = new JButton("Rechecher");
-        this.rechercheBouton.setPreferredSize(new Dimension(100,30));
-        
-      
-        
+        //TODO: REMOVE
         Object[][] data = {
             {"Bob", "Dylan", "61 rue Vasco de Gama", "MACSS"},  
             {"Marine", "Leparquet", "Cocorico", "Mafff"},
+            {"Marine", "Leparquet", "Cocorico", "Mafff"},
+            {"Marine", "Leparquet", "Cocorico", "Mafff"},
+            {"Marine", "Leparquet", "Cocorico", "Mafff"},
        };
         
-        this.tableau = new JTable(data, this.listechoix);
-        
-        
-        this.sp = new JScrollPane(tableau);
+        tableau = new JTable(data, this.listechoix);
+       
+        sp = new JScrollPane(tableau);
         sp.setPreferredSize(new Dimension(600,400));
       
         
-        
         //------------------------------------------
+       
+        
+        //Création du layout Manager
         GridBagLayout layout = new GridBagLayout();
         this.setLayout(layout);
         
+        //Création des contrainte du GridBagLayout
         GridBagConstraints gc = new GridBagConstraints();
         
         gc.fill = GridBagConstraints.HORIZONTAL;
         gc.insets = new Insets(10, 10, 10, 10);
         
+        
+        //Positionnement des différents éléments dans la fenêtre
         
         gc.gridx = 0;
         gc.gridy = 0;
@@ -95,10 +99,8 @@ public class PatientOnglet extends JPanel {
         gc.gridheight = 1;
         gc.gridwidth = 3;
         this.add(sp, gc);
-     
-        
-        
-        
+        //-------------------------------
+       
         this.setVisible(true);
         
     }
