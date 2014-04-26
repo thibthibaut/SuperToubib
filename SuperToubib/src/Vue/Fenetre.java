@@ -43,6 +43,7 @@ public class Fenetre extends JFrame {
         this.tabset = new JTabbedPane();
         
         this.tabset.add("Patient", new PatientOnglet());
+        this.tabset.add("Docteur", new DocteurOnglet());
         
         
         this.setTitle("SuperToubib!");
