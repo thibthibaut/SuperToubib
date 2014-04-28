@@ -1,7 +1,13 @@
 
 package Vue;
 
+import Connexion.Connexion;
+
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 
@@ -39,17 +45,38 @@ public class PatientOnglet extends JPanel {
         rechercheBouton = new JButton("Rechecher");
         rechercheBouton.setPreferredSize(new Dimension(100,30));
         
-        //TODO: REMOVE
-        Object[][] data = {
-            {"Bob", "Dylan", "61 rue Vasco de Gama", "MACSS"},  
-            {"Marine", "Leparquet", "Cocorico", "Mafff"},
-            {"Marine", "Leparquet", "Cocorico", "Mafff"},
-            {"Marine", "Leparquet", "Cocorico", "Mafff"},
-            {"Marine", "Leparquet", "Cocorico", "Mafff"},
-       };
+       //----------------------------------------------------------------
+       //------------------------------------------------------------------
+         try {
+            //Fenetre f = new Fenetre();
+            
+            Connexion c = new Connexion("localhost", "root", "");
+            Object[][] data = c.executeQuery2("SELECT * FROM malade");
+     
         
-        tableau = new JTable(data, this.listechoix);
+        
+        
+        
+       //--------------------------------------------------------------------
+       //---------------------------------------------------------------------
        
+        
+        
+        
+        
+        
+        String[] champs = {"Numéro","Nom", "Prénom", "Adresse", "Numéro de tél", "Mutuelle"};
+        tableau = new JTable(data, champs );
+       
+        
+           } catch (SQLException ex) {
+            
+        } catch (ClassNotFoundException ex) {
+            
+        }
+         
+         
+         
         sp = new JScrollPane(tableau);
         sp.setPreferredSize(new Dimension(600,400));
       
@@ -99,7 +126,7 @@ public class PatientOnglet extends JPanel {
         gc.gridheight = 1;
         gc.gridwidth = 3;
         this.add(sp, gc);
-        //-------------------------------
+     
        
         this.setVisible(true);
         

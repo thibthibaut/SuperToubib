@@ -26,11 +26,11 @@ public class Connexion {
     
     
     
-    public Connexion(String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException {
+    public Connexion(String adresse,String loginDatabase, String passwordDatabase) throws SQLException, ClassNotFoundException {
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
         
-        String urlDatabase = "jdbc:mysql://127.0.0.1/vercueil";
+        String urlDatabase = "jdbc:mysql://" + adresse +"/vercueil";
         
         //création d'une connexion JDBC à la base
         conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
@@ -56,8 +56,11 @@ public class Connexion {
 
     /**
      * Methode qui retourne l'ArrayList des champs de la requete en parametre
+     * @param requete
+     * @return ArrayList comportant les résulats de la requete
+     * @throws java.sql.SQLException
      */
-    public ArrayList remplirChampsRequete(String requete) throws SQLException {
+    public ArrayList executeQuery(String requete) throws SQLException {
         // récupération de l'ordre de la requete
         rset = stmt.executeQuery(requete);
 
@@ -78,9 +81,8 @@ public class Connexion {
 
             // Concatener les champs de la ligne separes par ,
             for (int i = 1; i < nbColonne; i++) {
-                champs = champs + "," + rset.getString(i+1);
+                champs = champs + "|" + rset.getString(i+1);
             }
-
             // ajouter un "\n" à la ligne des champs
             champs = champs + "\n";
 
@@ -91,4 +93,54 @@ public class Connexion {
         // Retourner l'ArrayList
         return liste;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    //-------TEST--------
+    
+    public Object[][] executeQuery2(String requete) throws SQLException {
+        // récupération de l'ordre de la requete
+        rset = stmt.executeQuery(requete);
+
+        // récupération du résultat de l'ordre
+        rsetMeta = rset.getMetaData();
+
+        // calcul du nombre de colonnes du resultat
+        int nbColonne = rsetMeta.getColumnCount();
+
+        // creation d'une ArrayList de String
+        Object[][] liste;
+        liste = new Object[100][nbColonne];
+        
+        int k = 0;
+        // tant qu'il reste une ligne 
+        while (rset.next()) {
+            String champs;
+             // ajouter premier champ
+            
+            // Concatener les champs de la ligne separes par ,
+            for (int i = 1; i < nbColonne; i++) {
+                
+                liste[k][i-1] = rset.getString(i);
+                
+            }
+           
+        }
+        
+        
+        
+        // Retourner l'ArrayList
+        return liste;
+    }
+    
+    
+    
+    
+    
+    
 }

@@ -22,7 +22,7 @@ public class Fenetre extends JFrame {
      */
     public Fenetre(){
         
-        this.connexionPanel = new ConnexionPanel();
+        this.connexionPanel = new ConnexionPanel(this);
         this.tabset = new JTabbedPane();
         
         this.tabset.add("Patient", new PatientOnglet());
@@ -32,15 +32,19 @@ public class Fenetre extends JFrame {
         this.setSize(700, 700);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-        
-        this.setContentPane(this.tabset);
+
+        this.setContentPane(this.connexionPanel);
         
         this.setVisible(true);
-        
-        
-        
     }
+    
+    
+    public void goToMainMenu(){
+  
+        connexionPanel.setVisible(false);
+        this.setContentPane(this.tabset);
+    }
+    
+    
     
 }
