@@ -27,7 +27,7 @@ public class ConnexionPanel extends JPanel {
     
     public ConnexionPanel(){
         
-        
+        //Commentaire de Kihi
         this.ip = new TextField("");
         this.user = new TextField("");
        
