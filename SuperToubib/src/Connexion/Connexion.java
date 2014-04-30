@@ -30,7 +30,7 @@ public class Connexion {
         // chargement driver "com.mysql.jdbc.Driver"
         Class.forName("com.mysql.jdbc.Driver");
         
-        String urlDatabase = "jdbc:mysql://127.0.0.1/vercueil";
+        String urlDatabase = "jdbc:mysql://127.0.0.1/bdd";
         
         //création d'une connexion JDBC à la base
         conn = DriverManager.getConnection(urlDatabase, loginDatabase, passwordDatabase);
