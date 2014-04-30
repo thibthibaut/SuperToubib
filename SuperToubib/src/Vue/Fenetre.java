@@ -53,7 +53,7 @@ public class Fenetre extends JFrame {
         
         
         
-        this.setContentPane(this.tabset);
+        this.setContentPane(this.connexionPanel);
         
         this.setVisible(true);
         
