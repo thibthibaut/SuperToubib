@@ -80,7 +80,7 @@ public class Malade extends Personne implements Generation, MiseAJour, Recherche
     @Override
     public void rechercher(String champ, String value) {
         try {
-            c.executeUpdate("SELECT * FROM Malade WHERE " + champ + " LIKE '%" + value + "'");
+            c.executeUpdate("SELECT * FROM Malade WHERE " + champ + " LIKE '%" + value + "%'");
         } catch (SQLException ex) {
             Logger.getLogger(Malade.class.getName()).log(Level.SEVERE, null, ex);
         }
