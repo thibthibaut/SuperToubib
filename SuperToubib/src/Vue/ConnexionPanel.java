@@ -6,14 +6,20 @@
 
 package Vue;
 
+import Connexion.Connexion;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
  *
  * @author Thibaut
  */
-public class ConnexionPanel extends JPanel {
+public class ConnexionPanel extends JPanel implements ActionListener {
     
     private TextField ip;
     private TextField user;
@@ -25,9 +31,16 @@ public class ConnexionPanel extends JPanel {
     
     private JButton connexion;
     
-    public ConnexionPanel(){
+    private Fenetre fenetre;
+    
+    public ConnexionPanel(Fenetre f){
         
+
+        //Commentaire de Kihi
+
+        fenetre = f;
         
+
         this.ip = new TextField("");
         this.user = new TextField("");
        
@@ -93,9 +106,29 @@ public class ConnexionPanel extends JPanel {
         
 
         this.setVisible(true);
+       
+ 
+        connexion.addActionListener(this);
+       
         
         
     }
-    
-    
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+       if(e.getSource() == connexion){
+           try {
+               Connexion c = new Connexion( ip.getText(), user.getText(), password.getText());
+               fenetre.goToMainMenu();
+           } catch (SQLException ex) {
+               
+               JOptionPane popup = new JOptionPane();
+               popup.showMessageDialog(null,"La connexion n'a pas pu être établie, merci de vérifier les champs", "Erreur de connexion", JOptionPane.ERROR_MESSAGE);
+               
+           } catch (ClassNotFoundException ex) {
+               Logger.getLogger(ConnexionPanel.class.getName()).log(Level.SEVERE, null, ex);
+           }
+                      
+        }
+    }    
 }

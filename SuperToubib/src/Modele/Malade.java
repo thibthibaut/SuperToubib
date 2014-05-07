@@ -33,6 +33,15 @@ public class Malade extends Personne implements Generation, MiseAJour, Recherche
             Logger.getLogger(Malade.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    /** 
+     * Getters
+     * @return 
+     */
+    
+    public int getNumero() {
+        return this.numero;
+    }
 
     /**
      * Ajouter un Malade à la base de données
