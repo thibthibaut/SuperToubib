@@ -23,20 +23,7 @@ public class Fenetre extends JFrame {
     public Fenetre(){
 
        
-        this.connexionPanel = new ConnexionPanel();    
-        this.tabset = new JTabbedPane();
-
-        this.tabset.add("Patient", new PatientOnglet());
-
-
-        this.setTitle("SuperToubib!");
-        this.setSize(600, 600);
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
-
-        this.setContentPane(this.connexionPanel);
-
-        this.setVisible(true);  
+        
 
         
         this.connexionPanel = new ConnexionPanel();
