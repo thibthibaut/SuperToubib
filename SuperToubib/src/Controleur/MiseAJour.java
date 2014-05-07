@@ -11,5 +11,5 @@ public interface MiseAJour {
      * @param numChamp Le champ que l'on souhaite modifier
      * @param value  La nouvelle valeur de ce champ 
      */
-    public void mettreAJour(int numChamp, String value);
+    public void mettreAJour(String[] values);
 }

@@ -27,12 +27,12 @@ public class Docteur extends Employe implements Generation, MiseAJour, Recherche
     }
 
     @Override
-    public void mettreAJour(int numChamp, String value) {
+    public void mettreAJour(String[] values) {
         // Executer Requête
     }
 
     @Override
-    public void rechercher(int numChamp, String value) {
+    public void rechercher(String champ, String value) {
         // Executer Requête
     }
     
